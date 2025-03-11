@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Check Out Info
+    </title>
+
+    <link rel="website icon" type="png" href="Images/HeadLogo.png">
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-color: rgb(222, 222, 222);
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        display: flex;
+    }
+
+    html {
+        font-size: 20px;
+        height: 100%;
+    }
+
+    .header {
+        position: fixed;
+        height: 60px;
+        width: 100%;
+        background-color: #242424;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        z-index: 1000;
+    }
+
+    .Logo {
+        position: relative;
+        width: 80px;
+        height: 35px;
+        margin-right: auto;
+    }
+
+    .Home-btn {
+        height: 35px;
+        width: 35px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.8s ease;
+        margin-right: -6px;
+    }
+
+    .Home-btn img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .container {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        min-height: 100vh;
+    }
+
+    .container form {
+        padding: 20px;
+        width: 700px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    }
+
+    .container form .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .container form .row .col {
+        flex: 1 1 250px;
+    }
+
+    .container form .row .col .title {
+        font-size: 20px;
+        color: #333;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+    }
+
+    .container form .row .col .inputBox {
+        margin: 15px 0;
+    }
+
+    .container form .row .col .inputBox span {
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .container form .row .col .inputBox input {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        font-size: 15px;
+        text-transform: none;
+        margin-top: 4.5px;
+    }
+
+    .container form .row .col .inputBox input:focus {
+        border: 1px solid #000;
+    }
+
+    .container form .row .col .flex {
+        display: flex;
+        gap: 15px;
+    }
+
+    .container form .row .col .flex .inputBox {
+        margin-top: 5px;
+    }
+
+    .container form .row .col .inputBox img {
+        height: 34px;
+        margin-top: 5px;
+        filter: drop-shadow(0 0 1px #000);
+    }
+
+    .container form .submit-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 17px;
+        background: #303030;
+        color: #fff;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+
+    .container form .submit-btn:hover {
+        background: #202020;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <img class="Logo" src="Images/Logo.png" alt="">
+        <div style="display: flex; align-items: center;">
+            <button class="Home-btn"
+                onclick="window.location.href='///C:/Users/User/OneDrive/Desktop/Html%20&%20Css/index.html';">
+                <img src="Images/Home.png" alt="">
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <form action="file:///C:/Users/User/OneDrive/Desktop/Html%20&%20Css/MainWeb.html" onsubmit="return validateForm() && confirmOrder()">
+
+            <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">Billing Address</h3>
+
+                <div class="inputBox">
+                <span>Full name</span>
+                <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="inputBox">
+                <span>Email</span>
+                <input type="email" placeholder="@gmail.com" required>
+                </div>
+                <div class="inputBox">
+                <span>Address</span>
+                <input type="text" placeholder="Street" required>
+                </div>
+                <div class="inputBox">
+                <span>City</span>
+                <input type="text" placeholder="City" required>
+                </div>
+
+                <div class="flex">
+                <div class="inputBox">
+                    <span>Country</span>
+                    <input type="text" placeholder="Albania" required>
+                </div>
+                <div class="inputBox">
+                    <span>Zip Code</span>
+                    <input type="text" placeholder="0000" required>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">Payment</h3>
+
+                <div class="inputBox">
+                <span>Cards Accepted</span>
+                <img src="images/card_img.png" alt="">
+                </div>
+                <div class="inputBox">
+                <span>Name On Card</span>
+                <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="inputBox">
+                <span>Credit Card Number</span>
+                <input type="number" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+                </div>
+                <div class="inputBox">
+                <span>Exp Month</span>
+                <input type="text" placeholder="January" required>
+                </div>
+
+                <div class="flex">
+                <div class="inputBox">
+                    <span>Exp Year</span>
+                    <input type="number" placeholder="XXXX" required>
+                </div>
+                <div class="inputBox">
+                    <span>CVV</span>
+                    <input type="text" placeholder="XXXX" required>
+                </div>
+                </div>
+
+            </div>
+
+            </div>
+
+            <input type="submit" value="Submit" class="submit-btn">
+
+        </form>
+
+        <script>
+            function validateForm() {
+            const inputs = document.querySelectorAll('input[required]');
+            for (let input of inputs) {
+                if (!input.value) {
+                alert('Please fill out all required fields.');
+                return false;
+                }
+            }
+            return true;
+            }
+        </script>
+
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Shopping Fields
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="MainWeb.css">
+
+    <link rel="stylesheet" href="MainWebMobile.css">
+
+    <link rel="website icon" type="png" href="Images/HeadLogo.png">
+</head>
+
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img class="Logo" src="Images/Logo.png" alt="">
+        </div>
+        <div class="categories">
+            <button class="Men"
+                onclick="document.getElementById('men-section').scrollIntoView({ behavior: 'smooth' });">
+                Men
+            </button>
+            <button class="Women"
+                onclick="document.getElementById('women-section').scrollIntoView({ behavior: 'smooth' });">
+                Woman
+            </button>
+            <button class="Kids"
+                onclick="document.getElementById('kids-section').scrollIntoView({ behavior: 'smooth' });">
+                Kids
+            </button>
+            <button class="Accessories"
+                onclick="document.getElementById('accessories-section').scrollIntoView({ behavior: 'smooth' });">
+                Accessories
+            </button>
+            <button class="Sales"
+                onclick="document.getElementById('sales-section').scrollIntoView({ behavior: 'smooth' });">
+                Sales
+            </button>
+        </div>
+        <div class="Nav" style="display: flex; align-items: center;">
+            <div class="search-container">
+                <input type="text" class="Search" placeholder="Search">
+                <img src="Images/SearchIcon.png" alt="Search Icon" class="search-icon">
+            </div>
+            <button class="Bookmark-btn">
+                <img src="Images/Heart.png" alt=""
+                    onclick="window.location.href='///C:/Users/User/OneDrive/Desktop/Html%20&%20Css/Bookmark.html';">
+            </button>
+            <button class="User-btn">
+                <img src="Images/User.png" alt=""
+                    onclick="window.location.href='///C:/Users/User/OneDrive/Desktop/Html%20%26%20Css/LoginPage.html';">
+            </button>
+            <button id="cartButton" class="ShoppingCart-btn">
+                <img src="Images/Shopping-bag.png" alt="">
+            </button>
+        </div>
+    </div>
+
+    <div class="top-img">
+        <img src="Images/Header.png" alt="">
+    </div>
+
+    <div class="MLP-img">
+        <img src="Images/Most-Liked-Products.png" alt="">
+    </div>
+
+    <div class="products-row"
+        style="grid-template-columns: repeat(4, 1fr); margin-bottom: 15px; justify-content: center;">
+        <div class="card">
+            <div class="image">
+                <img src="Images/Black-Polo-Shirt.png" alt="Black Polo Shirt">
+            </div>
+            <span class="title">Black Polo Shirt</span>
+            <span class="category">Male Shirts</span>
+            <span class="price" data-price="75">$75</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/Cargo-Pants.png" alt="Cargo-Pants">
+            </div>
+            <span class="title">Cargo Pants</span>
+            <span class="category">Male Pants</span>
+            <span class="price" data-price="35">$35</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/Panda-Lows.png" alt="Nike Panda Dunks">
+            </div>
+            <span class="title">Nike Panda Dunks</span>
+            <span class="category">Footwear</span>
+            <span class="price" data-price="120">$120</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/Flanner-Shirt.png" alt="Flannel Shirt">
+            </div>
+            <span class="title">Flannel Shirt</span>
+            <span class="category">Male Shirts</span>
+            <span class="price" data-price="45">$45</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+    </div>
+
+    <div class="Featured-Products">
+        <img src="Images/Featured Products.png" alt="Featured Products">
+    </div>
+
+    <div class="products-row"
+        style="grid-template-columns: repeat(4, 1fr); margin-bottom: 15px; justify-content: center;">
+        <div class="card">
+            <div class="image">
+                <img src="Images/BlackT-shirt.png" alt="Black T-shirt">
+            </div>
+            <span class="title">Black T-shirt</span>
+            <span class="category">Male Shirts</span>
+            <span class="price" data-price="25">$25</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/nike-air-force-1-lead-1-removebg-preview.png" alt="White Nike Air Force 1">
+            </div>
+            <span class="title">White Air Force 1</span>
+            <span class="category">Footwear</span>
+            <span class="price" data-price="120">$120</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/Blue-Jeans.png" alt="Blue-Jeans">
+            </div>
+            <span class="title">Blue Jeans</span>
+            <span class="category">Male Clothing</span>
+            <span class="price" data-price="35">$35</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/Black-Hoodie.png" alt="Black Hoodie">
+            </div>
+            <span class="title">Black Hoodie</span>
+            <span class="category">Female Clothing</span>
+            <span class="price" data-price="50">$50</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+    </div>
+
+    <div class="products-row"
+        style="grid-template-columns: repeat(4, 1fr); margin-bottom: 25px; justify-content: center;">
+        <div class="card">
+            <div class="image">
+                <img src="Images/Bomber-Jacket.png" alt="Bomber Jacket">
+            </div>
+            <span class="title">Bomber Jacket</span>
+            <span class="category">Male Jackets</span>
+            <span class="price" data-price="65">$65</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/Yeezy Slides.png" alt="Yeezy Slides">
+            </div>
+            <span class="title">Yeezy Slides</span>
+            <span class="category">Footwear</span>
+            <span class="price" data-price="75">$75</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/Sweat Pants.png" alt="Sweat Pants">
+            </div>
+            <span class="title">Sweatpants</span>
+            <span class="category">Female Pants</span>
+            <span class="price" data-price="15">$15</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/Puffer Jacket.png" alt="Puffer Jacket">
+            </div>
+            <span class="title">Puffer Jacket</span>
+            <span class="category">Male Jackets</span>
+            <span class="price" data-price="150">$150</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+    </div>
+
+    <div class="MenBanner">
+        <img src="Images/MenBanner.png" alt="">
+    </div>
+
+    <div id="men-section">
+        <div class="products-row"
+            style="grid-template-columns: repeat(4, 1fr); margin-bottom: 15px; justify-content: center;">
+            <div class="card">
+                <div class="image">
+                    <img src="Images/Black-Polo-Shirt.png" alt="Black Polo Shirt">
+                </div>
+                <span class="title">Black Polo Shirt</span>
+                <span class="category">Male Shirts</span>
+                <span class="price" data-price="75">$75</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/Cargo-Pants.png" alt="Cargo-Pants">
+                </div>
+                <span class="title">Cargo Pants</span>
+                <span class="category">Male Pants</span>
+                <span class="price" data-price="35">$35</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/Panda-Lows.png" alt="Nike Panda Dunks">
+                </div>
+                <span class="title">Nike Panda Dunks</span>
+                <span class="category">Footwear</span>
+                <span class="price" data-price="120">$120</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/Flanner-Shirt.png" alt="Flannel Shirt">
+                </div>
+                <span class="title">Flannel Shirt</span>
+                <span class="category">Male Shirts</span>
+                <span class="price" data-price="45">$45</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="WomanBanner">
+        <img src="Images/WomanBanner.png" alt="">
+    </div>
+
+    <div id="women-section">
+        <div class="products-row"
+            style="grid-template-columns: repeat(4, 1fr); margin-bottom: 15px; justify-content: center;">
+            <div class="card">
+                <div class="image">
+                    <img src="Images/CropTop.png" alt="Crop-Top">
+                </div>
+                <span class="title">Black Crop Top</span>
+                <span class="category">Female Tops</span>
+                <span class="price" data-price="25">$25</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/BlackLeggings.png" alt="Black-Leggings">
+                </div>
+                <span class="title">Black Leggings</span>
+                <span class="category">Female Leggings</span>
+                <span class="price" data-price="50">$50</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/PurpleShirt.png" alt="Purple-T-shirt">
+                </div>
+                <span class="title">Purple T-shirt</span>
+                <span class="category">Female T-shirts</span>
+                <span class="price" data-price="15">$15</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/BlueFlaredSkirt.png" alt="Blue-Flared-Skirt">
+                </div>
+                <span class="title">Blue Flared Skirt</span>
+                <span class="category">Female Skirts</span>
+                <span class="price" data-price="40">$40</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="KidsBanner">
+        <img src="Images/KidsBanner.png" alt="">
+    </div>
+
+    <div id="kids-section">
+        <div class="products-row"
+            style="grid-template-columns: repeat(4, 1fr); margin-bottom: 15px; justify-content: center;">
+            <div class="card">
+                <div class="image">
+                    <img src="Images/KidsTshirt.png" alt="Black-Kids-T-shirt">
+                </div>
+                <span class="title">Black Kids T-shirt</span>
+                <span class="category">Kids T-shirts</span>
+                <span class="price" data-price="15">$15</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/KidsOveralls.png" alt="Nike-Kids-Overalls">
+                </div>
+                <span class="title">Nike Kids Overalls</span>
+                <span class="category">Kids Clothing</span>
+                <span class="price" data-price="35">$35</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/KidsShoes-removebg-preview.png" alt="Kids-Convers-Shoes">
+                </div>
+                <span class="title">Kids Convers Shoes</span>
+                <span class="category">Kids Footwear</span>
+                <span class="price" data-price="30">$30</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/KidsJacket.png" alt="Kids-Jacket">
+                </div>
+                <span class="title">Kids Jacket</span>
+                <span class="category">Kids Jackets</span>
+                <span class="price" data-price="50">$50</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="AccessoriesBanner">
+        <img src="Images/AccessoriesBanner.png" alt="Accessories">
+    </div>
+
+    <div id="accessories-section" class="products-row"
+        style="grid-template-columns: repeat(4, 1fr); margin-bottom: 15px; justify-content: center;">
+        <div class="card">
+            <div class="image">
+                <img src="Images/CasioWatch.png" alt="Casio-Watch">
+            </div>
+            <span class="title">Casio Watch</span>
+            <span class="category">Watches</span>
+            <span class="price" data-price="85">$85</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/VanCleef-Bracelet.avif" alt="VanCleef-Bracelet">
+            </div>
+            <span class="title">Van Cleef Bracelet</span>
+            <span class="category">Bracelets</span>
+            <span class="price" data-price="250">$250</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/nikehyperwarmacademyfieldglov__40036-removebg-preview.png" alt="Nike Hyperwarm Gloves">
+            </div>
+            <span class="title">Nike Hyperwarm Gloves</span>
+            <span class="category">Gloves</span>
+            <span class="price" data-price="40">$40</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/CartierGlasses.png" alt="Cartier Glasses">
+            </div>
+            <span class="title">Cartier Glasses</span>
+            <span class="category">Glasses</span>
+            <span class="price" data-price="360">$360</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+    </div>
+
+    <div class="products-row"
+        style="grid-template-columns: repeat(4, 1fr); margin-bottom: 15px; justify-content: center;">
+        <div class="card">
+            <div class="image">
+                <img src="Images/ChanelHandbag.png" alt="Black Chanel Handbag">
+            </div>
+            <span class="title">Black Chanel Handbag</span>
+            <span class="category">Handbags</span>
+            <span class="price" data-price="275">$275</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/NikeBucketHat.png" alt="Nike Bucket Hat">
+            </div>
+            <span class="title">Nike Bucket Hat</span>
+            <span class="category">Hats</span>
+            <span class="price" data-price="50">$50</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/DieselBelt.png" alt="Diesel Belt">
+            </div>
+            <span class="title">Diesel Belt</span>
+            <span class="category">Belts</span>
+            <span class="price" data-price="35">$35</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="Images/LuivitonBag.png" alt="Louis Vuitton Bag">
+            </div>
+            <span class="title">Louis Vuitton Bag</span>
+            <span class="category">Cross Body Bag</span>
+            <span class="price" data-price="275">$275</span>
+            <div class="buttons">
+                <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                    <img src="Images/Heart-Black.png" alt="Button Image 1">
+                </button>
+                <button class="Cart-btn" onclick="addToCart(this)">
+                    <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                </button>
+            </div>
+            <div class="notification-overlay">Added to cart</div>
+        </div>
+    </div>
+
+    <div class="SalesBanner">
+        <img src="Images/SalesBanner.png" alt="">
+    </div>
+
+    <div id="sales-section">
+        <div class="products-row"
+            style="grid-template-columns: repeat(4, 1fr); margin-bottom: 15px; justify-content: center;">
+            <div class="card">
+                <div class="image">
+                    <img src="Images/Yeezy Boost 350.png" alt="Yeezy-Boost-350">
+                </div>
+                <span class="title">Yeezy Boost 350</span>
+                <span class="category">Footwear</span>
+                <div class="price-container">
+                    <span class="Oprice" style="margin-left: 16.80%;">$250</span>
+                    <span class="Dprice" data-price="180">$180</span>
+                </div>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/DenimJacket.png" alt="Denim-Jacket">
+                </div>
+                <span class="title">Denim Jacket</span>
+                <span class="category">Woman Jackets</span>
+                <div class="price-container">
+                    <span class="Oprice" style="margin-left: 13%;">$50</span>
+                    <span class="Dprice" data-price="35">$35</span>
+                </div>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/BlackBlazer.png" alt="Black-Blazer">
+                </div>
+                <span class="title">Black Blazer</span>
+                <span class="category">Woman Blazers</span>
+                <span class="Oprice" style="margin-left: 13%;">$60</span>
+                <span class="Dprice" data-price="45">$45</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="Images/WhiteHoodie.png" alt="White Hoodie">
+                </div>
+                <span class="title">White Hoodie</span>
+                <span class="category">Men Hoodies</span>
+                <span class="Oprice" style="margin-left: 13%;">$40</span>
+                <span class="Dprice" data-price="15">$15</span>
+                <div class="buttons">
+                    <button class="Like-btn" onclick="this.classList.toggle('active'); addToBookmark(this)">
+                        <img src="Images/Heart-Black.png" alt="Button Image 1">
+                    </button>
+                    <button class="Cart-btn" onclick="addToCart(this)">
+                        <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                    </button>
+                </div>
+                <div class="notification-overlay">Added to cart</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart" class="cart">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button id="clearCartButton" class="ClearCart-btn"><img src="Images/icons8-trash-can-480.png" alt=""></button>
+            <button id="closeCartButton" class="CloseCart-btn">X</button>
+        </div>
+        <div id="cartContent" class="cart-content">
+            <p>Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <p id="totalPrice">Total: $0</p>
+            <button id="checkoutButton"
+                onclick="window.location.href='///C:/Users/User/OneDrive/Desktop/Html%20%26%20Css/CheckOutInfo.html';">Checkout</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Easy Shop. All rights reserved.</p>
+        <p>Follow us on
+            <a href="https://facebook.com" target="_blank">Facebook</a>,
+            <a href="https://twitter.com" target="_blank">Twitter</a>,
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const closeCartButton = document.getElementById('closeCartButton');
+            const cart = document.getElementById('cart');
+
+            closeCartButton.addEventListener('click', function () {
+                cart.style.right = '-768px';
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cartButton = document.getElementById('cartButton');
+            const cart = document.getElementById('cart');
+            const cartContent = document.getElementById('cartContent');
+            const checkoutButton = document.getElementById('checkoutButton');
+            const totalPriceElement = document.getElementById('totalPrice');
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+
+            cartButton.addEventListener('click', () => {
+                cart.style.right = '0';
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!cart.contains(event.target) && !cartButton.contains(event.target)) {
+                    cart.style.right = '-400px';
+                }
+            });
+
+            function addToCart(button) {
+                const card = button.closest('.card');
+                const imageSrc = card.querySelector('.image img').src;
+                const title = card.querySelector('.title').innerText;
+                const category = card.querySelector('.category').innerText;
+                const priceElement = card.querySelector('.Dprice') || card.querySelector('.price');
+                const price = parseFloat(priceElement.dataset.price);
+
+                if (cartItems[title]) {
+                    cartItems[title].quantity += 1;
+                } else {
+                    cartItems[title] = {
+                        imageSrc,
+                        title,
+                        category,
+                        price,
+                        quantity: 1
+                    };
+                }
+
+                updateCart();
+                showNotification(card);
+                saveCart();
+            }
+
+            function updateCart() {
+                cartContent.innerHTML = '';
+                let totalPrice = 0;
+                let isEmpty = true;
+
+                for (const key in cartItems) {
+                    if (cartItems.hasOwnProperty(key)) {
+                        isEmpty = false;
+                        const item = cartItems[key];
+                        totalPrice += item.price * item.quantity;
+
+                        const cartItem = document.createElement('div');
+                        cartItem.classList.add('cart-item');
+                        cartItem.innerHTML = `
+                        <div class="cart-item-image">
+                            <img src="${item.imageSrc}" alt="${item.title}">
+                        </div>
+                        <div class="cart-item-info">
+                            <p class="cart-item-title">${item.title}</p>
+                            <p class="cart-item-category">${item.category}</p>
+                            <p class="cart-item-price">$${item.price}</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button onclick="updateQuantity('${item.title}', -1, event)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.title}', 1, event)">+</button>
+                        </div>
+                    `;
+
+                        cartContent.appendChild(cartItem);
+
+                        const hr = document.createElement('hr');
+                        hr.classList.add('cart-divider');
+                        cartContent.appendChild(hr);
+                    }
+                }
+
+                if (isEmpty) {
+                    cartContent.innerHTML = '<p>Your cart is empty.</p>';
+                }
+
+                totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
+            }
+
+            function updateQuantity(title, change, event) {
+                event.stopPropagation();
+                if (cartItems[title]) {
+                    cartItems[title].quantity += change;
+                    if (cartItems[title].quantity <= 0) {
+                        delete cartItems[title];
+                    }
+                    updateCart();
+                    saveCart();
+                }
+            }
+
+            function saveCart() {
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            }
+
+            const clearCartButton = document.getElementById('clearCartButton');
+
+            clearCartButton.addEventListener('click', () => {
+                cartItems = {};
+                saveCart();
+                updateCart();
+            });
+
+            function showNotification(card) {
+                card.classList.add('show-notification');
+                setTimeout(() => {
+                    card.classList.remove('show-notification');
+                }, 2000);
+            }
+
+            window.addToCart = addToCart;
+            window.updateQuantity = updateQuantity;
+
+            updateCart();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function scrollToSection(id) {
+                const element = document.getElementById(id);
+                const offset = -220; // Adjust this value to move the arrival point higher
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition + offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+
+            document.querySelector('.Men').addEventListener('click', function () {
+                scrollToSection('men-section');
+            });
+
+            document.querySelector('.Women').addEventListener('click', function () {
+                scrollToSection('women-section');
+            });
+
+            document.querySelector('.Kids').addEventListener('click', function () {
+                scrollToSection('kids-section');
+            });
+
+            document.querySelector('.Accessories').addEventListener('click', function () {
+                scrollToSection('accessories-section');
+            });
+
+            document.querySelector('.Sales').addEventListener('click', function () {
+                scrollToSection('sales-section');
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function addToBookmark(button) {
+                const card = button.closest('.card');
+                const imageSrc = card.querySelector('.image img').src;
+                const title = card.querySelector('.title').innerText;
+                const category = card.querySelector('.category').innerText;
+                const priceElement = card.querySelector('.Dprice') || card.querySelector('.price');
+                const price = parseFloat(priceElement.dataset.price);
+
+                let bookmarkItems = JSON.parse(localStorage.getItem('bookmarkItems')) || {};
+
+                if (bookmarkItems[title]) {
+                    delete bookmarkItems[title];
+                    button.classList.remove('active');
+                } else {
+                    bookmarkItems[title] = {
+                        imageSrc,
+                        title,
+                        category,
+                        price
+                    };
+                    button.classList.add('active');
+                }
+
+                localStorage.setItem('bookmarkItems', JSON.stringify(bookmarkItems));
+            }
+
+            window.addToBookmark = addToBookmark;
+
+            // Apply liked state on page load
+            const bookmarkItems = JSON.parse(localStorage.getItem('bookmarkItems')) || {};
+            document.querySelectorAll('.card').forEach(card => {
+                const title = card.querySelector('.title').innerText;
+                if (bookmarkItems[title]) {
+                    card.querySelector('.Like-btn').classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
