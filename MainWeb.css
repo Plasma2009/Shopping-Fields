@@ -1,0 +1,536 @@
+body {
+    background-color: rgb(222, 222, 222);
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    font-size: 20px;
+}
+
+.header {
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    background-color: #242424;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.Logo {
+    position: relative;
+    width: 80px;
+    height: 35px;
+    margin-right: auto;
+}
+
+.ShoppingCart-btn {
+    position: relative;
+    height: 35px;
+    width: 35px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.8s ease;
+    margin-right: 32px;
+}
+
+.ShoppingCart-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.User-btn {
+    height: 35px;
+    width: 35px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.8s ease;
+    margin-right: 10px;
+}
+
+.User-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+.Bookmark-btn {
+    height: 35px;
+    width: 35px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.8s ease;
+    margin-right: 10px;
+}
+
+.Bookmark-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+.footer {
+    background-color: #242424;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.footer a {
+    color: rgb(203, 203, 203);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.top-img img {
+    margin-top: 60px;
+    width: 100%;
+    height: 525px;
+    margin-bottom: 20px;
+}
+
+.products-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    width: 12.5em;
+    height: 16em;
+    transition: all 120ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 0.5em;
+    padding-bottom: 4.3em;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card .buttons {
+    position: absolute;
+    bottom: 0.625em;
+    right: 0.625em;
+    display: flex;
+    gap: 0.2em;
+}
+
+.card .buttons button {
+    border: none;
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.8s ease;
+}
+
+.card .buttons .Like-btn img {
+    width: 35px;
+    height: 35px;
+    transition: all 0.3s;
+}
+
+.card .buttons .Like-btn.active img {
+    content: url('Images/Red-filled-heart.png');
+    animation: growEffect 0.2s ease-in-out;
+}
+
+@keyframes growEffect {
+    0% {
+        transform: scale(0.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.card .buttons .Cart-btn img {
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s;
+}
+
+.card .buttons .Cart-btn:hover img {
+    transform: scale(1.1);
+}
+
+.card .buttons .Like-btn:hover img {
+    transform: scale(1.1);
+}
+
+.card .title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    position: absolute;
+    left: 0.625em;
+    bottom: 3.3em;
+    font-weight: 400;
+    color: #000;
+}
+
+.card .price {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    position: absolute;
+    left: 0.625em;
+    bottom: 0.7em;
+    color: #000;
+    font-weight: bold;
+}
+
+.card:hover::after {
+    bottom: 0;
+    opacity: 1;
+}
+
+.text {
+    max-width: 55px;
+}
+
+.image {
+    background: rgb(241, 241, 241);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    transition: transform 0.3s ease;
+}
+
+.image img {
+    width: 92%;
+    height: 92%;
+    object-fit: contain;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .image img {
+    transform: scale(1.1);
+}
+
+.category {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    position: absolute;
+    left: 0.85em;
+    bottom: 2.8em;
+    font-weight: 400;
+    color: grey;
+}
+
+.categories {
+    border: none;
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    left: 49%;
+    transform: translateX(-50%);
+}
+
+.categories button {
+    color: white;
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.categories button:hover {
+    color: rgb(203, 203, 203);
+}
+
+.cart {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s;
+    z-index: 1000;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    height: 60px;
+}
+
+.cart-header h3 {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cart-content {
+    padding: 10px;
+    overflow-y: auto;
+    height: calc(100% - 140px);
+}
+
+.cart-content p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.cart-footer {
+    padding: 10px;
+    background-color: #f1f1f1;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+}
+
+.cart-footer p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.cart-footer button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+}
+
+.cart-footer button:hover {
+    background-color: #555;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-quantity button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.cart-item-quantity button:hover {
+    background-color: #555;
+}
+
+.cart-item-quantity span {
+    margin: 0 10px;
+}
+
+.cart-item hr {
+    border: 1px solid grey;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.cart-divider {
+    border: 1px solid grey;
+    margin: 10px 0;
+    width: 100%;
+    opacity: 0.5;
+}
+
+.notification-overlay {
+    content: "Add to Cart";
+    padding-top: 1.55em;
+    padding-left: 3em;
+    position: absolute;
+    left: 0;
+    bottom: -60px;
+    background: #000000;
+    color: #fff;
+    height: 2.89em;
+    width: 100%;
+    transition: all 80ms;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0;
+}
+
+.card.show-notification .notification-overlay {
+    opacity: 75%;
+    bottom: 0;
+}
+
+.cart-item-category {
+    color: grey;
+}
+
+.cart-item-price {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.ClearCart-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    padding-left: 365px;
+    position: relative;
+}
+
+.ClearCart-btn img {
+    width: 25px;
+    height: 25px;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: -20px;
+    top: 1px;
+    margin-right: -5px;
+}
+
+.Search {
+    padding-left: 30px;
+    height: 30px;
+    border: 1.5px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    width: 100px;
+    color: white;
+}
+
+.Search:focus {
+    border: 1.5px solid white;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+}
+
+.Featured-Products img,
+.MLP-img img,
+.WomanBanner img,
+.KidsBanner img,
+.SalesBanner img,
+.MenBanner img,
+.AccessoriesBanner img {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: block;
+}
+
+.card .Dprice {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    position: absolute;
+    left: 0.625em;
+    bottom: 0.7em;
+    color: #000;
+}
+
+.card .Oprice {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 0.7em;
+    left: 0.625em;
+    color: grey;
+    text-decoration: line-through;
+}
+
+.CloseCart-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    left: 10px;
+    z-index: 1;
+}
+
+.CloseCart-btn:hover {
+    background-color: darkred;
+}
