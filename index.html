@@ -914,6 +914,12 @@
             window.updateQuantity = updateQuantity;
 
             updateCart();
+
+            button.addEventListener('touchstart', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                addToCart(this);
+            });
         });
     </script>
 
