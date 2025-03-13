@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bookmarks</title>
+
+    <link rel="website icon" type="png" href="Images/HeadLogo.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="Bookmark.css">
+
+    <link rel="stylesheet" href="BookmarkMobile.css" media="screen and (max-width: 768px)">
+
+</head>
+
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img class="Logo" src="Images/Logo.png" alt="">
+        </div>
+        <div style="display: flex; align-items: center;">
+            <button class="Home-btn" onclick="window.location.href='index.html';">
+                <img src="Images/Home.png" alt="">
+            </button>
+            <button id="cartButton" class="ShoppingCart-btn">
+                <img src="Images/Shopping-bag.png" alt="">
+            </button>
+        </div>
+    </div>
+
+    <div class="Bookmarks-Banner">
+        <img src="Images/BookmarksHeader.png" alt="">
+    </div>
+
+    <div id="bookmarkContent" class="products-row" style="justify-content: center; flex-wrap: wrap;"></div>
+
+    <div id="cart" class="cart">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button id="clearCartButton" class="ClearCart-btn"><img src="Images/icons8-trash-can-480.png" alt="">
+            </button>
+        </div>
+        <div id="cartContent" class="cart-content">
+            <p>Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <p id="totalPrice">Total: $0</p>
+            <button id="checkoutButton">Checkout</button>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="footer">
+        <p>&copy; 2024 Easy Shop. All rights reserved.</p>
+        <p>Follow us on
+            <a href="https://facebook.com" target="_blank">Facebook</a>,
+            <a href="https://twitter.com" target="_blank">Twitter</a>,
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cartButton = document.getElementById('cartButton');
+            const cart = document.getElementById('cart');
+            const cartContent = document.getElementById('cartContent');
+            const checkoutButton = document.getElementById('checkoutButton');
+            const totalPriceElement = document.getElementById('totalPrice');
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+
+            cartButton.addEventListener('click', () => {
+                cart.style.right = '0';
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!cart.contains(event.target) && !cartButton.contains(event.target)) {
+                    cart.style.right = '-400px';
+                }
+            });
+
+            function addToCart(button) {
+                const card = button.closest('.card');
+                const imageSrc = card.querySelector('.image img').src;
+                const title = card.querySelector('.title').innerText;
+                const category = card.querySelector('.category').innerText;
+                const price = parseFloat(card.querySelector('.price').dataset.price);
+
+                if (cartItems[title]) {
+                    cartItems[title].quantity += 1;
+                } else {
+                    cartItems[title] = {
+                        imageSrc,
+                        title,
+                        category,
+                        price,
+                        quantity: 1
+                    };
+                }
+
+                updateCart();
+                showNotification(card);
+                saveCart();
+            }
+
+            function updateCart() {
+                cartContent.innerHTML = '';
+                let totalPrice = 0;
+                let isEmpty = true;
+
+                for (const key in cartItems) {
+                    if (cartItems.hasOwnProperty(key)) {
+                        isEmpty = false;
+                        const item = cartItems[key];
+                        totalPrice += item.price * item.quantity;
+
+                        const cartItem = document.createElement('div');
+                        cartItem.classList.add('cart-item');
+                        cartItem.innerHTML = `
+                        <div class="cart-item-image">
+                            <img src="${item.imageSrc}" alt="${item.title}">
+                        </div>
+                        <div class="cart-item-info">
+                            <p class="cart-item-title">${item.title}</p>
+                            <p class="cart-item-category">${item.category}</p>
+                            <p class="cart-item-price">$${item.price}</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button onclick="updateQuantity('${item.title}', -1, event)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.title}', 1, event)">+</button>
+                        </div>
+                    `;
+
+                        cartContent.appendChild(cartItem);
+
+                        const hr = document.createElement('hr');
+                        hr.classList.add('cart-divider');
+                        cartContent.appendChild(hr);
+                    }
+                }
+
+                if (isEmpty) {
+                    cartContent.innerHTML = '<p>Your cart is empty.</p>';
+                }
+
+                totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
+            }
+
+            function updateQuantity(title, change, event) {
+                event.stopPropagation();
+                if (cartItems[title]) {
+                    cartItems[title].quantity += change;
+                    if (cartItems[title].quantity <= 0) {
+                        delete cartItems[title];
+                    }
+                    updateCart();
+                    saveCart();
+                }
+            }
+
+            function saveCart() {
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            }
+
+            const clearCartButton = document.getElementById('clearCartButton');
+
+            clearCartButton.addEventListener('click', () => {
+                cartItems = {};
+                saveCart();
+                updateCart();
+            });
+
+            function showNotification(card) {
+                card.classList.add('show-notification');
+                setTimeout(() => {
+                    card.classList.remove('show-notification');
+                }, 2000);
+            }
+
+            window.addToCart = addToCart;
+            window.updateQuantity = updateQuantity;
+
+            updateCart();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const bookmarkContent = document.getElementById('bookmarkContent');
+
+            function updateBookmark() {
+                let bookmarkItems = JSON.parse(localStorage.getItem('bookmarkItems')) || {};
+                bookmarkContent.innerHTML = '';
+
+                let isEmpty = true;
+
+                for (const key in bookmarkItems) {
+                    if (bookmarkItems.hasOwnProperty(key)) {
+                        isEmpty = false;
+                        const item = bookmarkItems[key];
+                        const bookmarkItem = document.createElement('div');
+                        bookmarkItem.classList.add('card');
+                        bookmarkItem.innerHTML = `
+                        <div class="image">
+                            <img src="${item.imageSrc}" alt="${item.title}">
+                        </div>
+                        <span class="title">${item.title}</span>
+                        <span class="category">${item.category}</span>
+                        <span class="price" data-price="${item.price}">$${item.price}</span>
+                        <div class="buttons">
+                            <button class="Like-btn active" onclick="toggleLike(this, '${item.title}')">
+                                <img src="Images/Red-filled-heart.png" alt="Button Image 1">
+                            </button>
+                            <button class="Cart-btn" onclick="addToCart(this)">
+                                <img src="Images/Shopping-bag-black.png" alt="Button Image 2">
+                            </button>
+                        </div>
+                        <div class="notification-overlay">Added to cart</div>
+                    `;
+                        bookmarkContent.appendChild(bookmarkItem);
+                    }
+                }
+
+                if (isEmpty) {
+                    bookmarkContent.innerHTML = '<p>No Bookmarked Products</p>';
+                }
+            }
+
+            function toggleLike(button, title) {
+                let bookmarkItems = JSON.parse(localStorage.getItem('bookmarkItems')) || {};
+
+                if (bookmarkItems[title]) {
+                    delete bookmarkItems[title];
+                    localStorage.setItem('bookmarkItems', JSON.stringify(bookmarkItems));
+                    button.closest('.card').remove();
+                }
+
+                updateBookmark();
+            }
+
+            window.toggleLike = toggleLike;
+            updateBookmark();
+        });
+    </script>
+
+
+</body>
+
+</html>
