@@ -68,4 +68,8 @@
         margin-top: 140px;
     }
 
+    .card:hover {
+        box-shadow: none;
+    }
+
 }
