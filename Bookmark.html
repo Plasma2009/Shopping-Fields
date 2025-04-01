@@ -63,6 +63,17 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const closeCartButton = document.getElementById('closeCartButton');
+            const cart = document.getElementById('cart');
+
+            closeCartButton.addEventListener('click', function () {
+                cart.style.right = '-768px';
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
             const cartButton = document.getElementById('cartButton');
             const cart = document.getElementById('cart');
             const cartContent = document.getElementById('cartContent');
