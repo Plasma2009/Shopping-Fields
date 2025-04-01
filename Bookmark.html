@@ -85,7 +85,8 @@
                 const imageSrc = card.querySelector('.image img').src;
                 const title = card.querySelector('.title').innerText;
                 const category = card.querySelector('.category').innerText;
-                const price = parseFloat(card.querySelector('.price').dataset.price);
+                const priceElement = card.querySelector('.Dprice') || card.querySelector('.price');
+                const price = parseFloat(priceElement.dataset.price);
 
                 if (cartItems[title]) {
                     cartItems[title].quantity += 1;
@@ -183,6 +184,12 @@
             window.updateQuantity = updateQuantity;
 
             updateCart();
+
+            button.addEventListener('touchstart', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                addToCart(this);
+            });
         });
     </script>
 
