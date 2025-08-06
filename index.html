@@ -990,7 +990,6 @@
 
             window.addToBookmark = addToBookmark;
 
-            // Apply liked state on page load
             const bookmarkItems = JSON.parse(localStorage.getItem('bookmarkItems')) || {};
             document.querySelectorAll('.card').forEach(card => {
                 const title = card.querySelector('.title').innerText;
